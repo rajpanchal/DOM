@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+
+    <body style="background-color: #DE7A22">
+    <div class="container" style="background-color: #6AB187; height:100%">
+        <h1><span id="s1">0</span> of <span id="s2">0</span></h1>
+        <p>Number till win : <span id="s3">5</span></p>
+        
+        <input type="number" id="inputy">
+        <div class="row">
+            <button id="p1" class="btn btn-medium waves-effect" class="col s12 l4" style="margin-right: 30px;margin-left: 15px">Player 1</button>
+            <button id="p2" class="btn btn-medium waves-effect" class="col s12 l4" style="margin-right: 30px">Player 2</button>
+            <button id="rst" class="btn btn-medium waves-effect" class="col s12 l4" style="margin-right: 30px">Reset</button>
+        </div>
+    </div>
+
+
+								<script>
+
+
+												var player1 = document.getElementById('p1');
+												var player2 = document.getElementById('p2');
+												var span1 = document.getElementById('s1');
+												var span2 = document.getElementById('s2');
+												var winningScore = document.getElementById('s3');
+												var numInput = document.querySelector('input');
+												var reset = document.getElementById('rst');
+												var max = 5;
+												
+												player1.addEventListener('click',function(){
+												if(Number(span2.textContent)!=max){
+
+													if(Number(span1.textContent)<max){
+														span1.innerHTML++;
+													}
+													if(Number(span1.textContent) == max){
+														span1.style.color = "green";
+													}
+												}
+												});
+
+												player2.addEventListener('click',function(){
+												if(Number(span1.textContent) != max){
+
+													if(Number(span2.textContent)<max){
+														span2.innerHTML++;
+													}
+													if(Number(span2.textContent) == max){
+														span2.style.color = "green";
+													}
+												}
+												});
+												
+												reset.addEventListener('click',function(){
+													span1.innerHTML = 0;
+													span2.innerHTML = 0;
+													span1.style.color = "black";
+													span2.style.color = "black";
+												});
+
+												numInput.addEventListener("change", function(){
+													winningScore.textContent = numInput.value;
+													max = numInput.value;
+												});			
+
+
+								</script>
+      <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    </body>
+  </html>
